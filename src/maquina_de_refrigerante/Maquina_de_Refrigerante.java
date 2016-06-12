@@ -40,7 +40,28 @@ public class Maquina_de_Refrigerante {
                             + "2 - Administrador\n");
         
         int modo = sc.nextInt();
-        if (modo == 1){                    
+        if (modo == 1){          
+            double din = 0;
+            do {
+                System.out.println("Insira moedas");
+                din = sc.nextDouble();
+                switch((int)din){                     
+                    case 5:
+                        dindin.adicionarMoedas(0.05);
+                        break;
+                    case 25:
+                        dindin.adicionarMoedas(0.25);
+                        break;
+                    case 50:
+                        dindin.adicionarMoedas(0.50);
+                        break;
+                    case 1:
+                        dindin.adicionarMoedas(1.0);
+                        break;
+                 }
+                System.out.println("Seu saldo para compras: " + dindin.saldo);
+                System.out.println("------------------------------------------------------------");
+            } while (din != 0);
             System.out.println("Escolha:\n"
                                 + "1 - Coca-Cola\n"
                                 + "2 - Pepsi\n"
