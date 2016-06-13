@@ -59,8 +59,8 @@ public class Maquina_de_Refrigerante {
                 int unds = sc.nextInt();            
                 switch(opCompra){            
                     case 1:
-                        if (venda.dindin.saldo >= 4.0*unds){                            
-                            //stock.removerProduto("Coca-Cola", unds);
+                        if (venda.dindin.saldo >= 4.0*unds && !stock.coca.isEmpty()){                            
+                            stock.removerProduto("Coca-Cola", unds);
                             dindin.adicionarMoedasParaCompra(-(4.0*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
@@ -88,8 +88,8 @@ public class Maquina_de_Refrigerante {
                         break;
                         
                     case 2:
-                        if (venda.dindin.saldo >= 3.50*unds){                            
-                            //stock.removerProduto("Pepsi", unds);
+                        if (venda.dindin.saldo >= 3.50*unds && !stock.pepsi.isEmpty()){                            
+                            stock.removerProduto("Pepsi", unds);
                             dindin.adicionarMoedasParaCompra(-(3.50*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
@@ -116,8 +116,8 @@ public class Maquina_de_Refrigerante {
                         break;
                         
                     case 3:
-                        if (venda.dindin.saldo >= 3.20*unds){                            
-                            //stock.removerProduto("Fanta", unds);
+                        if (venda.dindin.saldo >= 3.20*unds && !stock.fanta.isEmpty()){                            
+                            stock.removerProduto("Fanta", unds);
                             dindin.adicionarMoedasParaCompra(-(3.20*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
@@ -144,8 +144,8 @@ public class Maquina_de_Refrigerante {
                         break;
                         
                     case 4:
-                        if (venda.dindin.saldo >= 2.0*unds){                            
-                            //stock.removerProduto("Grapette", unds);
+                        if (venda.dindin.saldo >= 2.0*unds && !stock.grapette.isEmpty()){                            
+                            stock.removerProduto("Grapette", unds);
                             dindin.adicionarMoedasParaCompra(-(2.0*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
