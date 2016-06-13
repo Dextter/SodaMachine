@@ -5,9 +5,8 @@
  */
 package maquina_de_refrigerante;
 
-import static java.lang.System.out;
+
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -15,41 +14,48 @@ import java.util.Scanner;
  */
 public class Estoque {
     
-    int coca = 0;
-    int fanta = 0;
-    int pepsi = 0;
-    int grapette = 0;    
+    
+   Produto produto = new Produto();
+   ArrayList<Produto> estoque = new ArrayList();     
+   
+    void verStock() {        
+        for (int i = 0; i < estoque.size(); i++){
+            System.out.println(estoque.get(i).getNome());
+        }
         
-    public String verStock() {        
-        return "Coca-Cola:  "   + coca + 
-                 "\nFanta:        " + fanta + 
-                 "\nPepsi  :      " + pepsi+ 
-                 "\nGrapette     " + grapette;
     }
 
     void addProdutos(String nome, int qtd) {        
         if (nome.toLowerCase() == "coca-cola"){
-            coca +=qtd;
+            produto.setNome("Coca-Cola");
+            produto.setPreco(4.0);
+            estoque.add(produto);
         } else if (nome.toLowerCase() == "pepsi"){
-            pepsi +=qtd;
+            produto.setNome("Pepsi");
+            produto.setPreco(3.50);
+            estoque.add(produto);
         } else if (nome.toLowerCase() == "fanta"){
-            fanta+=qtd;
+            produto.setNome("Fanta");
+            produto.setPreco(3.20);
+            estoque.add(produto);
         } else if (nome.toLowerCase() == "grapette"){
-            grapette +=qtd;
+            produto.setNome("Grapette");
+            produto.setPreco(2.0);
+            estoque.add(produto);
         }
         System.out.println("Adicionado");        
     }
     
-     void removerProduto(String nome, int qtd) {        
-         if (nome.toLowerCase() == "coca-cola"){
-            coca -= qtd;
-        } else if (nome.toLowerCase() == "pepsi"){
-            pepsi -= qtd;
-        } else if (nome.toLowerCase() == "fanta"){
-            fanta -= qtd;
-        } else if (nome.toLowerCase() == "grapette"){
-            grapette -= qtd;
-        }
-         System.out.println("Vendido");        
-    }
+//     void removerProduto(String nome, int qtd) {        
+//         if (nome.toLowerCase() == "coca-cola"){
+//            coca -= qtd;
+//        } else if (nome.toLowerCase() == "pepsi"){
+//            pepsi -= qtd;
+//        } else if (nome.toLowerCase() == "fanta"){
+//            fanta -= qtd;
+//        } else if (nome.toLowerCase() == "grapette"){
+//            grapette -= qtd;
+//        }
+//         System.out.println("Vendido");        
+//    }
 }

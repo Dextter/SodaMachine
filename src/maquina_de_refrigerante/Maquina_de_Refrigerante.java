@@ -60,7 +60,7 @@ public class Maquina_de_Refrigerante {
                 switch(opCompra){            
                     case 1:
                         if (venda.dindin.saldo >= 4.0*unds){                            
-                            stock.removerProduto("Coca-Cola", unds);
+                            //stock.removerProduto("Coca-Cola", unds);
                             dindin.adicionarMoedasParaCompra(-(4.0*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
@@ -89,7 +89,7 @@ public class Maquina_de_Refrigerante {
                         
                     case 2:
                         if (venda.dindin.saldo >= 3.50*unds){                            
-                            stock.removerProduto("Pepsi", unds);
+                            //stock.removerProduto("Pepsi", unds);
                             dindin.adicionarMoedasParaCompra(-(3.50*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
@@ -117,7 +117,7 @@ public class Maquina_de_Refrigerante {
                         
                     case 3:
                         if (venda.dindin.saldo >= 3.20*unds){                            
-                            stock.removerProduto("Fanta", unds);
+                            //stock.removerProduto("Fanta", unds);
                             dindin.adicionarMoedasParaCompra(-(3.20*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
@@ -145,7 +145,7 @@ public class Maquina_de_Refrigerante {
                         
                     case 4:
                         if (venda.dindin.saldo >= 2.0*unds){                            
-                            stock.removerProduto("Grapette", unds);
+                            //stock.removerProduto("Grapette", unds);
                             dindin.adicionarMoedasParaCompra(-(2.0*unds));
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Seu saldo: " + venda.dindin.saldo);
@@ -195,14 +195,11 @@ public class Maquina_de_Refrigerante {
                     case 1:
                         System.out.println("Digite o valor a ser inserido");
                         double inserted = sc.nextDouble();
-                        dindin.adicionarMoedas(inserted);
-                        
-                        break;
-                        
+                        dindin.adicionarMoedas(inserted);                        
+                        break;                        
                     case 2:
-                        stock.verStock();                        
-                        break;
-                        
+                        stock.verStock();
+                        break;                        
                     case 3:
                         System.out.println("Qual destes proodutos deseja inserir no estoque?"
                                                      + "\nCoca-Cola"
@@ -229,10 +226,8 @@ public class Maquina_de_Refrigerante {
                             default:
                                 System.out.println("Digite as informações dispostas acima.");
                             break;
-                        }
-                        
-                        break;
-                        
+                        }                        
+                        break;                        
                     case 4:
                         venda.verHistorico();                        
                         break;
@@ -244,8 +239,7 @@ public class Maquina_de_Refrigerante {
                         break;
                     case 0:
                         modo = 0;
-                        break;
-                         
+                        break;                         
                 }            
             }while(modo == 2);
         } else {
@@ -255,5 +249,6 @@ public class Maquina_de_Refrigerante {
         if (modo == 0){
             System.out.println("Volte sempre!");
         }
+        
     }        
 }
