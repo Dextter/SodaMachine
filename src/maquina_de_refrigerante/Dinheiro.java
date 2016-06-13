@@ -11,8 +11,13 @@ package maquina_de_refrigerante;
  */
 public class Dinheiro {
     public double saldo = 0.0;
+    public double saldoMaquina = 0.0;
     
     void adicionarMoedas(double inserido) {
+        saldoMaquina += inserido;
+    }
+    
+    void adicionarMoedasParaCompra(double inserido) {
         saldo += inserido;
     }
     

@@ -11,11 +11,7 @@ package maquina_de_refrigerante;
  *
  * @author pablopc
  */
-public class Vendas {
-
-    void clientePagar(String nomeProduto) {
-        
-    }
+public class Vendas {    
 
     void verHistorico() {
         

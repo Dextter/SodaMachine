@@ -29,8 +29,7 @@ public class Maquina_de_Refrigerante {
      */
     
     public static void main(String[] args) {
-        Vendas venda = new Vendas();
-        Refrigerante products = new Refrigerante();
+        Vendas venda = new Vendas();        
         Dinheiro dindin = new Dinheiro();
         Estoque stock = new Estoque();
         
@@ -47,45 +46,109 @@ public class Maquina_de_Refrigerante {
                 din = sc.nextDouble();
                 switch((int)din){                     
                     case 5:
-                        dindin.adicionarMoedas(0.05);
+                        dindin.adicionarMoedasParaCompra(0.05);
                         break;
                     case 25:
-                        dindin.adicionarMoedas(0.25);
+                        dindin.adicionarMoedasParaCompra(0.25);
                         break;
                     case 50:
-                        dindin.adicionarMoedas(0.50);
+                        dindin.adicionarMoedasParaCompra(0.50);
                         break;
                     case 1:
-                        dindin.adicionarMoedas(1.0);
+                        dindin.adicionarMoedasParaCompra(1.0);
                         break;
                  }
                 System.out.println("Seu saldo para compras: " + dindin.saldo);
                 System.out.println("------------------------------------------------------------");
             } while (din != 0);
             System.out.println("Escolha:\n"
-                                + "1 - Coca-Cola\n"
-                                + "2 - Pepsi\n"
-                                + "3 - Fanta\n"
-                                + "4 - Grapette\n"
-                                + "0 - Sair");
+                                + "1) Coca-Cola - R$ 4,00\n"
+                                + "2) Pepsi - R$ 3,50\n"
+                                + "3) Fanta - R$ 3,20\n"
+                                + "4) Grapette - R$ 2,00\n"
+                                + "0) Sair");
 
-            int opCompra = sc.nextInt();
+            int opCompra = sc.nextInt();            
+            System.out.println("Quantas unidades?");
+            int unds = sc.nextInt();
             do{    
                 switch(opCompra){            
                     case 1:
-                        venda.clientePagar("Coca");
+                        if (dindin.saldo >= 4.0*unds){                            
+                            stock.removerProduto("Coca-Cola", unds);
+                            System.out.println("Compra realizada com sucesso!");
+                            if (dindin.saldo > 4.0*unds){
+                                double valorCompra = 4.0*unds;
+                                double troco = valorCompra - dindin.saldo;
+                                System.out.println("Seu troco: " + troco);
+                                dindin.adicionarMoedas(-troco);
+                           } 
+                           if(dindin.saldoMaquina <= dindin.saldo){
+                                    System.out.println("Não há moedas disponíveis para troco.");
+                                }
+                        } else if (dindin.saldo < 4.0*unds) {
+                            System.out.println("Saldo insuficiente!");
+                        }
+                        dindin.adicionarMoedas(dindin.saldo);
                         break;
                         
                     case 2:
-                        venda.clientePagar("Pepsi");
+                        if (dindin.saldo >= 3.50*unds){                            
+                            stock.removerProduto("Pepsi", unds);
+                            System.out.println("Compra realizada com sucesso!");
+                            if (dindin.saldo > 3.50*unds){
+                                double valorCompra = 3.50*unds;
+                                double troco = valorCompra - dindin.saldo;
+                                System.out.println("Seu troco: " + troco);
+                                dindin.adicionarMoedas(-troco);
+                            } 
+                            if(dindin.saldoMaquina <= dindin.saldo){
+                                    System.out.println("Não há moedas disponíveis para troco.");
+                                }
+                        } else if (dindin.saldo < 3.50*unds) {
+                            System.out.println("Saldo insuficiente!");
+                        }
+                        dindin.adicionarMoedas(dindin.saldo);
                         break;
                         
                     case 3:
-                        venda.clientePagar("Fanta");
+                        if (dindin.saldo >= 3.20*unds){                            
+                            stock.removerProduto("Fanta", unds);
+                            System.out.println("Compra realizada com sucesso!");
+                            if (dindin.saldo > 3.20*unds){
+                                double valorCompra = 3.20*unds;
+                                double troco = valorCompra - dindin.saldo;
+                                if (dindin.saldo < dindin.saldoMaquina){
+                                    System.out.println("Seu troco: " + troco);
+                                    dindin.adicionarMoedas(-troco);
+                                } 
+                                if(dindin.saldoMaquina <= dindin.saldo){
+                                    System.out.println("Não há moedas disponíveis para troco.");
+                                    }
+                           }
+                        } else if (dindin.saldo < 3.20*unds) {
+                            System.out.println("Saldo insuficiente!");
+                        }
+                        dindin.adicionarMoedas(dindin.saldo);
                         break;
                         
                     case 4:
-                        venda.clientePagar("Grapette");
+                        if (dindin.saldo >= 2.0*unds){                            
+                            stock.removerProduto("Grapette", unds);
+                            System.out.println("Compra realizada com sucesso!");
+                            if (dindin.saldo > 2.0*unds){
+                                double valorCompra = 2.0*unds;
+                                double troco = valorCompra - dindin.saldo;
+                                System.out.println("Seu troco: " + troco);
+                                dindin.adicionarMoedas(-troco);
+                           } 
+                           if (dindin.saldoMaquina <= dindin.saldo) {
+                                    System.out.println("Não há moedas disponíveis para troco.");
+                                }
+                        } else if (dindin.saldo < 2.0*unds) {
+                            System.out.println("Saldo insuficiente!");
+                        }
+                        dindin.adicionarMoedas(dindin.saldo);
                         break;
                         
                 }            
@@ -96,6 +159,7 @@ public class Maquina_de_Refrigerante {
                                 + "2 - Ver estoque\n"
                                 + "3 - Adicionar Produtos\n"
                                 + "4 - Ver historico de vendas\n"
+                                + "5 - Ver saldo da máquina\n"
                                 + "0 - Sair");
 
             int opModo = sc.nextInt();
@@ -109,28 +173,41 @@ public class Maquina_de_Refrigerante {
                         break;
                         
                     case 2:
-                        stock.verStock();
-                        
+                        stock.verStock();                        
                         break;
                         
                     case 3:
-                        System.out.println("Digite o nome do produto");
+                        System.out.println("Qual destes proodutos deseja inserir no estoque?");
                         String marca = sc.next();
-                        System.out.println("Digite o valor do produto");
-                        double preco = sc.nextDouble();
-        
-                        products.setNome(marca);
-                        products.setValor(preco);
-        
-                        stock.addProdutos(products);
+                        System.out.println("Digite quantas unidades deseja estocar:");
+                        int qtd = sc.nextInt();                                            
+                        
+                        if(null!=marca.toLowerCase())switch (marca.toLowerCase()) {
+                            case "coca-cola":
+                                stock.addProdutos("Coca-Cola", qtd);
+                            break;
+                            case "pepsi":
+                                stock.addProdutos("Pepsi", qtd);
+                            break;
+                            case "fanta":
+                                stock.addProdutos("Fanta", qtd);
+                            break;
+                            case "grapette":                                                                                                
+                                stock.addProdutos("Grapette", qtd);
+                            break;
+                            default:
+                                System.out.println("Digite as informações dispostas acima.");
+                            break;
+                        }
                         
                         break;
                         
                     case 4:
-                        venda.verHistorico();
-                        
+                        venda.verHistorico();                        
                         break;
-                        
+                     case 5:
+                         System.out.println("Saldo da máquina: " + dindin.saldoMaquina);
+                         break;
                 }            
             }while(opModo != 0);
         } else {
