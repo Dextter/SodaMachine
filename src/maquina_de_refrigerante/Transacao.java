@@ -9,7 +9,7 @@ package maquina_de_refrigerante;
  *
  * @author pablopc
  */
-public class Dinheiro {
+public class Transacao {
     public double saldo = 0.0;
     public double saldoMaquina = 0.0;
     
